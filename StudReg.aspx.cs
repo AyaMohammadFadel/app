@@ -34,9 +34,11 @@ namespace my_app_aya
                 RequiredFieldValidator_npassport.Enabled = false;
             }
         }
+     
 
         protected void rb_sNationality_other_CheckedChanged(object sender, EventArgs e)
         {
+            
             if (rb_sNationality_other.Checked)
             {
                 lbl_sPassport.Enabled = true;
@@ -86,11 +88,11 @@ namespace my_app_aya
                     studentObj.Nid = txt_sPassport.Text;
 
                 studentObj.Mobile = txt_sMobile.Text;
-                studentObj.mail = txt_sMail.Text;
+                studentObj.Mail = txt_sMail.Text;
 
                 if (txt_sPassword.Text == txt_sRe_Password.Text)
                 {
-                    studentObj.password = txt_sPassword.Text;
+                    studentObj.Password = txt_sPassword.Text;
                 }
 
                 studentObj.Qual_uni_id =int.Parse(ddl_sQaul_uni.SelectedValue);
@@ -105,10 +107,27 @@ namespace my_app_aya
 
                 studentObj.Group_id = 0;
 
-                studentObj.typeID = 1;
+                studentObj.TypeID = 1;
 
-                int sendingObj = StudentBL.Insert(studentObj);
-                Label1.Text = sendingObj.ToString();
+                int RowsAffected = StudentBL.Insert(studentObj);
+                string msg = string.Empty;
+                switch(RowsAffected)
+                {
+                    case -1:
+                        msg = "هذا الإيميل مستخدم مسبقا";
+                        break;
+                    case -2:
+                        msg = "هذا الرقم القومي له حساب مفعل بإيميل مختلف";
+                        break;
+                    case -3:
+                        msg = "لقد تم إنشاء حساب جديد بنجاح ولكن عليك الإنتظار حتى يتم تفعيله من قبل المسؤولين";
+                        break;
+                    case 1:
+                        msg = "لقد تم التسجيل بنجاح";
+                        Response.Redirect("~/AfterRegister.aspx");
+                        break;
+                }
+                ClientScript.RegisterStartupScript(GetType(), "alert", msg);
             }
         }
     }

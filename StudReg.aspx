@@ -70,23 +70,23 @@
                             <asp:TextBox ID="txt_sName_ar" runat="server" align="right"></asp:TextBox>
                         </td>
                         <td class="auto-style15">
-                            <asp:Label ID="lbl_sName_ar" runat="server" Text="الإسم كاملا باللغة العربية"></asp:Label>
+                            <asp:Label ID="lbl_sName_ar" runat="server" Text="الإسم كاملا باللغة العربية" AssociatedControlID="txt_sName_ar"></asp:Label>
                         </td>
                     </tr>
                     <tr>
                         <td class="auto-style6">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_name_en" runat="server" ControlToValidate="txt_sName_en" ErrorMessage="برجاء ادخال الاسم كامل باللغة الإنجليزية كما سيظهر بالشهادة" SetFocusOnError="True" ValidationGroup="registration">*</asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_name_en" runat="server" ControlToValidate="txt_sName_en" ErrorMessage="برجاء ادخال الاسم كامل باللغة الإنجليزية كما سيظهر بالشهادة" SetFocusOnError="True" ValidationGroup="registration" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </td>
                         <td class="auto-style9">
                             <asp:TextBox ID="txt_sName_en" runat="server" align="right"></asp:TextBox>
                         </td>
                         <td class="auto-style15">
-                            <asp:Label ID="lbl_sName_en" runat="server" Text="الإسم كاملا باللغة الإنجليزية"></asp:Label>
+                            <asp:Label ID="lbl_sName_en" runat="server" Text="الإسم كاملا باللغة الإنجليزية" AssociatedControlID="txt_sName_en"></asp:Label>
                         </td>
                     </tr>
                     <tr>
                         <td class="auto-style6">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_fname" runat="server" ControlToValidate="txt_sName_fn" ErrorMessage="برجاء ادخال الاسم الأول باللغة الإنجليزية" SetFocusOnError="True" ValidationGroup="registration">*</asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_fname" runat="server" ControlToValidate="txt_sName_fn" ErrorMessage="برجاء ادخال الاسم الأول باللغة الإنجليزية" SetFocusOnError="True" ValidationGroup="registration" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </td>
                         <td class="auto-style9">
                             <asp:TextBox ID="txt_sName_fn" runat="server" align="right"></asp:TextBox>
@@ -99,7 +99,7 @@
                     </tr>
                     <tr>
                         <td class="auto-style7">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_Lnzme" runat="server" ErrorMessage="برجاء ادخال الاسم الأخير باللغة الإنجليزية" ControlToValidate="txt_sName_ln" SetFocusOnError="True" ValidationGroup="registration">*</asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator_Lnzme" runat="server" ErrorMessage="برجاء ادخال الاسم الأخير باللغة الإنجليزية" ControlToValidate="txt_sName_ln" SetFocusOnError="True" ValidationGroup="registration" ForeColor="Red">*</asp:RequiredFieldValidator>
                         </td>
                         <td class="auto-style10">
                             <asp:TextBox ID="txt_sName_ln" runat="server" align="right"></asp:TextBox>
@@ -174,10 +174,10 @@
                      <tr>
                         <td class="auto-style6">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator_sPass" runat="server" ControlToValidate="txt_sPassword" SetFocusOnError="True" ValidationGroup="registration" Display="Dynamic" ErrorMessage="برجاء تحديد كلمة مرور">*</asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator_sPass" runat="server" ErrorMessage="كلمة السر يجب ان لا تقل عن 8 احرف" ControlToValidate="txt_sPassword" ValidationExpression="^.*(?=.{8,}).*$" Display="Dynamic">كلمة السر يجب ان لا تقل عن 8 احرف</asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator_sPass" runat="server" ErrorMessage="كلمة السر يجب ان لا تقل عن 8 احرف" ControlToValidate="txt_sPassword" ValidationExpression="^.*(?=.{8,}).*$" Display="Dynamic" ForeColor="Red" SetFocusOnError="True">كلمة السر يجب ان لا تقل عن 8 احرف</asp:RegularExpressionValidator>
                          </td>
                         <td class="auto-style9">
-                            <asp:TextBox ID="txt_sPassword" runat="server" align="right"></asp:TextBox>
+                            <asp:TextBox ID="txt_sPassword" runat="server" align="right" TextMode="Password"></asp:TextBox>
                         </td>
                         <td class="auto-style15">
                             <asp:Label ID="lbl_sPassword" runat="server" Text="كلمة المرور "></asp:Label>
@@ -186,10 +186,10 @@
                      <tr>
                         <td class="auto-style6">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator_aRepass" runat="server" ErrorMessage="برجاء اعادة ادخال كلمة المرور صحيحة" ControlToValidate="txt_sRe_Password" SetFocusOnError="True" ValidationGroup="registration">*</asp:RequiredFieldValidator>
-                            <asp:CompareValidator ID="CompareValidator_sRe_Password" runat="server" ControlToCompare="txt_sPassword" ControlToValidate="txt_sRe_Password" Display="Dynamic" ErrorMessage="كلمة السر غير متطابقة" ValidationGroup="registration" ForeColor="Red"></asp:CompareValidator>
+                            <asp:CompareValidator ID="CompareValidator_sRe_Password" runat="server" ControlToCompare="txt_sPassword" ControlToValidate="txt_sRe_Password" Display="Dynamic" ErrorMessage="كلمة السر غير متطابقة" ValidationGroup="registration" ForeColor="Red" SetFocusOnError="True"></asp:CompareValidator>
                          </td>
                         <td class="auto-style9">
-                            <asp:TextBox ID="txt_sRe_Password" runat="server" align="right"></asp:TextBox>
+                            <asp:TextBox ID="txt_sRe_Password" runat="server" align="right" TextMode="Password"></asp:TextBox>
                         </td>
                         <td class="auto-style15">
                             <asp:Label ID="lbl_sRe_Password" runat="server" Text="تأكيد كلمة المرور "></asp:Label>

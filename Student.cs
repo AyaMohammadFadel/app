@@ -39,9 +39,9 @@ namespace my_app_aya
         public string Pass_eaxm { get; set; }
         public int Account_ID { get; set; }
         public int Exam_ID { get; set; }
-        public int typeID { get; set; }
-        public string mail { get; set; }
-        public string password { get; set; }
+        public int TypeID { get; set; }
+        public string Mail { get; set; }
+        public string Password { get; set; }
     }
   
 }

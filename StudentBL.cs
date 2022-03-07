@@ -43,9 +43,9 @@ namespace my_app_aya
                //  new SqlParameter("@stud_Is_success",stud.Is_success),
                //  new SqlParameter("@stud_user_exam",stud.User_eaxm),   
                //  new SqlParameter("@stud_pass_exam",stud.Pass_eaxm),
-               new SqlParameter("@Type_id",stud.typeID),
-               new SqlParameter("@Email",stud.mail),
-               new SqlParameter("@Password",stud.password)
+               new SqlParameter("@Type_id",stud.TypeID),
+               new SqlParameter("@Email",stud.Mail),
+               new SqlParameter("@Password",stud.Password)
             };
             return DBManager.DMLfunction(query, parameters);
 

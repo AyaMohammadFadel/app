@@ -19,15 +19,15 @@ namespace my_app_aya
             //  create new sqlconnection and connection to database by using connection string from web.config file
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dtuConnectionString"].ConnectionString);
 
-            SqlCommand InsCommand = new SqlCommand();
-            InsCommand.Connection = con;
+            SqlCommand InsCommand = new SqlCommand(query, con);
+           
             InsCommand.CommandType = CommandType.StoredProcedure;
-            InsCommand.CommandText = query;
+            
             InsCommand.Parameters.AddRange(parameters);
             try
             {
                 con.Open();
-                RowsAffected = InsCommand.ExecuteNonQuery();
+                RowsAffected =Convert.ToInt32(InsCommand.ExecuteScalar());
             }
             catch(Exception)
             {
